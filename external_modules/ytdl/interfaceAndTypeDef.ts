@@ -37,9 +37,13 @@ interface downloadOptions extends getInfoOptions, chooseFormatOptions {
         end?: number;
     };
     begin?: string | number | Date;
+    /** ライブバッファ */
     liveBuffer?: number;
+    /** ハイウォーターマーク */
     highWaterMark?: number;
+    /** IPv6をブロック */
     IPv6Block?: string;
+    /** ダウンロードチャンク */
     dlChunkSize?: number;
 }
 
@@ -48,25 +52,42 @@ type VideoFormatQuality = 'tiny' | 'small' | 'medium' | 'large' | 'hd720' | 'hd1
 
 /** 動画フォーマット設定 */
 interface videoFormat {
+    /** Iタグ */
     itag: number;
+    /** URL */
     url: string;
+    /** MIMEタイプ */
     mimeType?: string;
+    /** 動画ビットレート */
     bitrate?: number;
+    /** 音声ビットレート */
     audioBitrate?: number;
+    /** 横幅 */
     width?: number;
+    /** 縦幅 */
     height?: number;
+    /** 初期レンジ */
     initRange?: { start: string; end: string };
+    /** インデックスレンジ */
     indexRange?: { start: string; end: string };
     lastModified: string;
+    /** コンテンツの大きさ */
     contentLength: string;
+    /** クオリティ */
     quality: ExtendString<VideoFormatQuality>;
+    /** クオリティレベル */
     qualityLabel: '144p' | '144p 15fps' | '144p60 HDR' | '240p' | '240p60 HDR' | '270p' | '360p' | '360p60 HDR'
     | '480p' | '480p60 HDR' | '720p' | '720p60' | '720p60 HDR' | '1080p' | '1080p60' | '1080p60 HDR' | '1440p'
     | '1440p60' | '1440p60 HDR' | '2160p' | '2160p60' | '2160p60 HDR' | '4320p' | '4320p60';
+    /** プロテクションレベル */
     projectionType?: 'RECTANGULAR';
+    /** フレームレート */
     fps?: number;
+    /** アベレージビットレート */
     averageBitrate?: number;
+    /** オーディオクオリティ */
     audioQuality?: 'AUDIO_QUALITY_LOW' | 'AUDIO_QUALITY_MEDIUM';
+    /** カラーインフォ */
     colorInfo?: {
         primaries: string;
         transferCharacteristics: string;
@@ -149,21 +170,32 @@ interface translationLanguage {
 
 /** 動画情報 */
 interface VideoDetails {
+    /** YouTube管理のVideoID */
     videoId: string;
+    /** タイトル */
     title: string;
+    /** 短い説明 */
     shortDescription: string;
+    /** 動画の長さ */
     lengthSeconds: string;
+    /** 検索キーワード */
     keywords?: string[];
+    /** YouTube管理のユーザーChannelID */
     channelId: string;
     isOwnerViewing: boolean;
     isCrawlable: boolean;
+    /** サムネイル */
     thumbnails: thumbnail[];
     averageRating: number;
     allowRatings: boolean;
+    /** 再生回数 */
     viewCount: string;
+    /** ユーザー名 */
     author: string;
+    /** 非公開動画であるかどうか */
     isPrivate: boolean;
     isUnpluggedCorpus: boolean;
+    /** ライブコンテンツであるかどうか */
     isLiveContent: boolean;
 }
 
@@ -197,6 +229,7 @@ interface Author {
     subscriber_count?: number;
 }
 
+/** マイクロフォーマットレンダラー */
 interface MicroformatRenderer {
     thumbnail: {
         thumbnails: thumbnail[];
@@ -234,6 +267,7 @@ interface MicroformatRenderer {
     uploadDate: string;
 }
 
+/** ストーリーボード */
 interface storyboard {
     templateUrl: string;
     thumbnailWidth: number;
@@ -245,25 +279,39 @@ interface storyboard {
     storyboardCount: number;
 }
 
+/** チャプター */
 interface Chapter {
     title: string;
     start_time: number;
 }
 
+/** さらなるビデオの詳細 */
 interface MoreVideoDetails extends Omit<VideoDetails, 'author' | 'thumbnail' | 'shortDescription'>, Omit<MicroformatRenderer, 'title' | 'description'> {
+    /** */
     published: number;
+    /** YouTube動画へのリンク */
     video_url: string;
+    /** */
     age_restricted: boolean;
+    /** 高評価数 */
     likes: number | null;
+    /** 低評価数 */
     dislikes: number | null;
+    /** メディア情報 */
     media: Media;
+    /** ユーザー */
     author: Author;
+    /** サムネイル */
     thumbnails: thumbnail[];
+    /** */
     storyboards: storyboard[];
+    /** */
     chapters: Chapter[];
+    /** 説明 */
     description: string | null;
 }
 
+/** 動画情報 */
 interface videoInfo {
     iv_load_policy?: string;
     iv_allow_in_place_switch?: string;
@@ -424,22 +472,30 @@ interface videoInfo {
     videoDetails: MoreVideoDetails;
 }
 
+/** 関連動画 */
 interface relatedVideo {
     id?: string;
     title?: string;
     published?: string;
-    author: Author | 'string'; // to remove the `string` part later
-    ucid?: string; // to remove later
-    author_thumbnail?: string; // to remove later
+    /** srtingは削除予定 */
+    author: Author | 'string';
+    /** @deprecated 削除予定 */
+    ucid?: string;
+    /** @deprecated 削除予定 */
+    author_thumbnail?: string;
     short_view_count_text?: string;
     view_count?: string;
     length_seconds?: number;
-    video_thumbnail?: string; // to remove later
+    /** @deprecated 削除予定 */
+    video_thumbnail?: string;
     thumbnails: thumbnail[];
     richThumbnails: thumbnail[];
     isLive: boolean;
 }
 
+/**
+ * 日本語に変換した型定義です。
+ */
 declare module interfaceAndTypeDef {
     export {
         ExtendString,
