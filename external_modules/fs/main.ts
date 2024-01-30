@@ -36,5 +36,5 @@ function list() {
  * 
  * @see [source] (https://github.com/nodejs/node/blob/v20.2.0/lib/fs.js)
  */
-declare module fs { export { existsSync } }
+declare module fs { export { existsSync, PathLike } }
 export default fs
