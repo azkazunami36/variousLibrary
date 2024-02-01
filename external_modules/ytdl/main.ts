@@ -1,12 +1,12 @@
-import chooseFormat from "./chooseFormat/main";
-import filterFormats from "./filterFormats/main";
-import getBasicInfo from "./getBasicInfo/main";
-import getInfo from "./getInfo/main";
-import getURLVideoID from "./getURLVideoID/main";
-import getVideoID from "./getVideoID/main";
-import validateID from "./validateID/main";
-import validateURL from "./validateURL/main";
-import version from "./version/main";
+import chooseFormat from "./chooseFormat/main.js";
+import filterFormats from "./filterFormats/main.js";
+import getBasicInfo from "./getBasicInfo/main.js";
+import getInfo from "./getInfo/main.js";
+import getURLVideoID from "./getURLVideoID/main.js";
+import getVideoID from "./getVideoID/main.js";
+import validateID from "./validateID/main.js";
+import validateURL from "./validateURL/main.js";
+import version from "./version/main.js";
 
 /**
  * YouTubeのソースを取得するモジュール

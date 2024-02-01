@@ -2,8 +2,8 @@
 
 
 // 自作モジュールインポート
-import externalModules from "./external_modules/main";
-import orignalModules from "./orignal_modules/main";
+import externalModules from "./external_modules/main.js";
+import orignalModules from "./orignal_modules/main.js";
 
 /**
  * かずなみが作成した、便利なプログラムが集まった、すごくわかりやすいライブラリです。

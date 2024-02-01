@@ -1,11 +1,6 @@
 import fss from "fs";
 
-import existsSync from "./existsSync/main"
-
-/**
- * fsモジュールでサポートされているパス
- */
-export type PathLike = string | Buffer | URL
+import existsSync from "./existsSync/main.js"
 
 /** fsの元関数を検索するための一時的な置き場所です。 */
 function list() {
@@ -36,5 +31,5 @@ function list() {
  * 
  * @see [source] (https://github.com/nodejs/node/blob/v20.2.0/lib/fs.js)
  */
-declare module fs { export { existsSync, PathLike } }
+declare module fs { export { existsSync } }
 export default fs

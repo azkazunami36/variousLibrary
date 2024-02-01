@@ -1,6 +1,6 @@
 import fs from "fs";
 
-import { PathLike } from "../main";
+import { PathLike } from "../interfaceAndTypeDef.js";
 
 /**
  * 指定したパス先が存在する場合は`true`、存在しない場合は`false`です。

@@ -1,5 +1,5 @@
-import fs from "./fs/main";
-import ytdl from "./ytdl/main";
+import fs from "./fs/main.js";
+import ytdl from "./ytdl/main.js";
 /**
  * 外部で使われているパッケージです。説明が日本語なので分かりやすい設計になっています。
  * 
