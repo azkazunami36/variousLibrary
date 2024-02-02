@@ -9,5 +9,6 @@
     "express": "^4.18.2",
     "typescript": "^5.3.3",
     "ytdl": "^1.4.1"
-  }
+  },
+  "type": "module"
 }

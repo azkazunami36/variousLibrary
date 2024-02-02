@@ -15,7 +15,6 @@ function list() {
     fss.createWriteStream
     fss.openSync
 }
-
 /**
  * node:fsモジュールを使用すると、標準のPOSIX関数に近い方法でファイルシステムを扱うことが出来ます。
  * 
