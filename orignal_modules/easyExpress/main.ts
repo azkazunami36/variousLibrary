@@ -1,6 +1,7 @@
 import express from "express";
 import http from "http";
 import https from "https";
+import bodyParser from "body-parser";
 import fs from "fs";
 
 /**
@@ -16,9 +17,11 @@ export class easyExpress {
     }) {
         this.app = express();
         if (option?.https) {
-            
-        } 
+
+        }
         else this.data.http = http.createServer();
+
+        this.app.use(bodyParser.urlencoded({ limit: "127gb", extended: true }));
     }
     /** easyExpressを立ち上げるために使用された変数です。 */
     data: {
@@ -27,3 +30,4 @@ export class easyExpress {
     }
     app: express.Express
 }
+export default easyExpress;
