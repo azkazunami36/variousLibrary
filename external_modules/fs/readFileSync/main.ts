@@ -5,10 +5,8 @@ export function readFileSync(
     options?: {
         encoding?: null | undefined;
         flag?: string | undefined;
-    } | null,
+    } | null
 ): Buffer {
     return fs.readFileSync(path, options)
 };
-
-export default readFileSync;
 
