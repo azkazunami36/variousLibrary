@@ -29,7 +29,7 @@ export default new class fs {
      * ```
      * @since — v0.1.21
      */
-    existsSync = writeFileSync;
+    existsSync = existsSync;
     /**
      * Reads the contents of the directory.
      *
@@ -43,7 +43,7 @@ export default new class fs {
      * If `options.withFileTypes` is set to `true`, the result will contain `fs.Dirent` objects.
      * @since v0.1.21
      */
-    readdirSync = writeFileSync;
+    readdirSync = readdirSync;
     /**
      * Returns the contents of the `path`.
      *
@@ -68,7 +68,7 @@ export default new class fs {
      * @since v0.1.8
      * @param path filename or file descriptor
      */
-    readFileSync = writeFileSync;
+    readFileSync = readFileSync;
     /**
      * Returns `undefined`.
      *
