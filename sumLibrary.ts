@@ -1,9 +1,8 @@
 // 他作モジュール・パッケージインポート
 
-
 // 自作モジュールインポート
-import externalModules from "./external_modules/main.js"
-import orignalModules from "./orignal_modules/main.js"
+import externalModules from "./external_modules/main.js";
+import orignalModules from "./orignal_modules/main.js";
 
 /**
  * かずなみが作成した、便利なプログラムが集まった、すごくわかりやすいライブラリです。
@@ -15,13 +14,13 @@ import orignalModules from "./orignal_modules/main.js"
  * - discord.js
  * - express
  * - ytdl
- * 
+ *
  * バージョン: 0.0.2
  */
-export default new class SumLibrary {
+export default new (class SumLibrary {
     /**
      * 外部で使われているパッケージです。説明が日本語なので分かりやすい設計になっています。
-     * 
+     *
      * 他にもオリジナルで追加をしたり、機能性を向上させたり、様々なアレンジが加わっています。
      */
     externalModules = externalModules;
@@ -29,4 +28,4 @@ export default new class SumLibrary {
      * 自作で作成した、便利なモジュールです。オリジナルなので、かずなみからすればとても分かりやすいライブラリです。
      */
     originalModules = orignalModules;
-};
+})();

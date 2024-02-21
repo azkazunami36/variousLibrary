@@ -3,6 +3,9 @@ import http from "http";
 import https from "https";
 import bodyParser from "body-parser";
 import fs from "fs";
+import qs from "qs";
+
+
 
 export class easyExpress {
     constructor(option?: {
@@ -11,6 +14,8 @@ export class easyExpress {
             cert: string
             key: string
         }
+        /** getメソッドを受信した際に、特定のフォルダ内を参照し返答するようにコードを自動でセットします。パスが存在しない場合は自動で無効になります。 */
+        getMethodToPath: string
     }) {
         this.app = express();
         if (option?.https) {
@@ -20,17 +25,24 @@ export class easyExpress {
             });
         }
         else this.data.server = http.createServer();
+        if (option?.getMethodToPath) this.getMethodToPath = option.getMethodToPath;
+        this.app.get("*", (req, res) => {
+            if (this.getMethodToPath) {
 
+            }
+            if (this.#get) this.#get(req, res)
+        });
         this.app.use(bodyParser.urlencoded({ limit: "127gb", extended: true }));
     }
+    getMethodToPath: string | undefined
+    #get: ((req: express.Request, res: express.Response) => void) | undefined;
     /** easyExpressを立ち上げるために使用された変数です。 */
     data: {
         /**
          * 
          */
         server: http.Server | https.Server | undefined
-    } = {
-        server: undefined
-    }
+    } = { server: undefined }
     app: express.Express
+    get(callback: (req: express.Request, res: express.Response) => void) { this.#get = callback }
 }
