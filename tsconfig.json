@@ -13,8 +13,9 @@
         "strictNullChecks": true
     },
     "include": [
-        "main.ts",
-        "variousLibrary"
+        "sumLibrary.ts",
+        "external_modules",
+        "orignal_modules"
     ],
     "exclude": [
         "node_modules"
