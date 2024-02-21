@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "module": "ESNext",
+        "moduleResolution": "Node",
+        "target": "ESNext",
+        "resolveJsonModule": true,
+        "composite": true,
+        "declaration": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "noImplicitAny": true,
+        "sourceMap": true,
+        "strictNullChecks": true
+    },
+    "include": [
+        "main.ts",
+        "variousLibrary"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
