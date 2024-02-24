@@ -1,1 +1,3 @@
-export class path { };
+export class path {
+    
+};

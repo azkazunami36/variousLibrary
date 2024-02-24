@@ -1,9 +1,12 @@
 // 他作モジュール・パッケージインポート
+import { fs } from "./external_modules/fs/main.js";
+import { ytdl } from "./external_modules/ytdl/main.js";
+
 // 自作モジュールインポート
 import { path } from "./orignal_modules/path/main.js";
 import { easyExpress } from "./orignal_modules/easyExpress/main.js";
-import { fs } from "./external_modules/fs/main.js";
-import { ytdl } from "./external_modules/ytdl/main.js";
+import { bouyomi } from "./orignal_modules/bouyomi/main.js";
+import { handyTool } from "./orignal_modules/handyTool/main.js";
 
 class externalModulesClass {
     /**
@@ -23,7 +26,7 @@ class externalModulesClass {
      */
     fs = fs;
     /**
-     * YouTubeのソースを取得するモジュール
+     * YouTubeのソースを取得するモジュール。  
      * ダウンロードや表示、収集が可能です。
      */
     ytdl = ytdl;
@@ -38,6 +41,14 @@ class originalModulesClass {
      * 簡単にexpressをセットアップできる、簡易expressです。
      */
     easyExpress = easyExpress;
+    /**
+     * 棒読みちゃんをリモートで利用するためのクラスです。
+     */
+    bouyomi = bouyomi;
+    /**
+     * 小規模の便利ツールを格納しています。
+     */
+    handyTool = handyTool;
 }
 const originalModules: originalModulesClass = new originalModulesClass();
 class sumLibraryClass {
@@ -54,10 +65,6 @@ class sumLibraryClass {
 }
 /**
  * かずなみが作成した、便利なプログラムが集まった、すごくわかりやすいライブラリです。
- * 使い回りが出来、とても便利です。このソース自体を動作させても何も効果はありません。
- * しかし、次のパッケージが確実に入っている必要があります。
- *
- * バージョン: 0.1.2
  */
 const sumLibrary: sumLibraryClass = new sumLibraryClass();
 
