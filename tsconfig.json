@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "module": "ESNext",
+        "module": "CommonJS",
         "moduleResolution": "Node",
         "target": "ESNext",
         "resolveJsonModule": true,
@@ -10,14 +10,11 @@
         "skipLibCheck": true,
         "noImplicitAny": true,
         "sourceMap": true,
-        "strictNullChecks": true
+        "strictNullChecks": true,
+        "strict": true,
+        "newLine": "lf",
+        "outDir": "dist"
     },
-    "include": [
-        "sumLibrary.ts",
-        "external_modules",
-        "orignal_modules"
-    ],
-    "exclude": [
-        "node_modules"
-    ]
+    "include": ["sumLibrary.ts", "external_modules", "orignal_modules"],
+    "exclude": ["node_modules"]
 }

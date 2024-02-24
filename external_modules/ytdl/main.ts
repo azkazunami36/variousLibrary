@@ -8,15 +8,14 @@ import { validateID } from "./validateID/main.js";
 import { validateURL } from "./validateURL/main.js";
 import { version } from "./version/main.js";
 
-export default new class ytdl {
-    chooseFormat = chooseFormat
-    filterFormats = filterFormats
-    getBasicInfo = getBasicInfo
-    getInfo = getInfo
-    getURLVideoID = getURLVideoID
-    getVideoID = getVideoID
-    validateID = validateID
-    validateURL = validateURL
-    version = version
-};
-
+export class ytdl {
+    static chooseFormat = chooseFormat;
+    static filterFormats = filterFormats;
+    static getBasicInfo = getBasicInfo;
+    static getInfo = getInfo;
+    static getURLVideoID = getURLVideoID;
+    static getVideoID = getVideoID;
+    static validateID = validateID;
+    static validateURL = validateURL;
+    static version = version;
+}

@@ -1,7 +1,5 @@
 /node_modules
 /package-lock.json
-*.js
-*.js.map
-*.d.ts
+/dist
 .DS_Store
 tsconfig.tsbuildinfo
