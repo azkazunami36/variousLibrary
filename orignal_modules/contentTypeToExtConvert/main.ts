@@ -12,10 +12,7 @@ const data = [
     ["css", "text/css"],
     ["csv", "text/csv"],
     ["doc", "application/msword"],
-    [
-        "docx",
-        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-    ],
+    ["docx", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"],
     ["eot", "application/vnd.ms-fontobject"],
     ["epub", "application/epub+zip"],
     ["gz", "application/gzip"],
@@ -50,10 +47,7 @@ const data = [
     ["pdf", "application/pdf"],
     ["php", "application/x-httpd-php"],
     ["ppt", "application/vnd.ms-powerpoint"],
-    [
-        "pptx",
-        "application/vnd.openxmlformats-officedocument.presentationml.presentation",
-    ],
+    ["pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation"],
     ["rar", "application/vnd.rar"],
     ["rtf", "application/rtf"],
     ["sh", "application/x-sh"],
@@ -74,10 +68,7 @@ const data = [
     ["woff2", "font/woff2"],
     ["xhtml", "application/xhtml+xml"],
     ["xls", "application/vnd.ms-excel"],
-    [
-        "xlsx",
-        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-    ],
+    ["xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"],
     ["xml", "application/xml"],
     ["xul", "application/vnd.mozilla.xul+xml"],
     ["zip", "application/zip"],
@@ -86,13 +77,8 @@ const data = [
     ["7z", "application/x-7z-compressed"],
 ];
 
-function contentTypeToExtConvert(
-    string: string,
-    toType: "extension" | "contentType",
-) {
-    if (toType === "contentType") {
-        for (let i = 0; i !== data.length; i++) {
-            
-        }
+export function contentTypeToExtConvert(string: string, toType: "extension" | "contentType") {
+    for (let i = 0; i !== data.length; i++) {
+        if (data[i][toType === "contentType" ? 0 : 1] === string) return data[i][toType === "extension" ? 0 : 1];
     }
 }

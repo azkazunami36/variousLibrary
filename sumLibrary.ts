@@ -1,9 +1,9 @@
 // 他作モジュール・パッケージインポート
 import { fs } from "./external_modules/fs/main.js";
 import { ytdl } from "./external_modules/ytdl/main.js";
-
+import { path as externalModulesPath } from "./external_modules/path/main.js";
 // 自作モジュールインポート
-import { path } from "./orignal_modules/path/main.js";
+import { path as originalModulesPath } from "./orignal_modules/path/main.js";
 import { easyExpress } from "./orignal_modules/easyExpress/main.js";
 import { bouyomi } from "./orignal_modules/bouyomi/main.js";
 import { handyTool } from "./orignal_modules/handyTool/main.js";
@@ -26,17 +26,26 @@ class externalModulesClass {
      */
     fs = fs;
     /**
-     * YouTubeのソースを取得するモジュール。  
-     * ダウンロードや表示、収集が可能です。
+     * YouTubeのソースを取得するモジュール。ダウンロードや表示、収集が可能です。
      */
     ytdl = ytdl;
+    /**
+     * `node:path` モジュールは、ファイルとディレクトリを操作するためのユーティリティを提供します
+     * パス。 以下を使用してアクセスできます。
+     *
+     * ```js
+     * const path = require('node:path');
+     * ```
+     * @see [source](https://github.com/nodejs/node/blob/v20.2.0/lib/path.js)
+     */
+    path = externalModulesPath;
 }
 const externalModules: externalModulesClass = new externalModulesClass();
 class originalModulesClass {
     /**
      * ファイルパスからフォルダかどうかや拡張子など、様々な情報を取得したり、編集、データ化することが出来るツールです。
      */
-    path = path;
+    path = originalModulesPath;
     /**
      * 簡単にexpressをセットアップできる、簡易expressです。
      */
