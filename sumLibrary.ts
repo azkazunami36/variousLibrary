@@ -7,6 +7,11 @@ import { path as originalModulesPath } from "./orignal_modules/path/main.js";
 import { easyExpress } from "./orignal_modules/easyExpress/main.js";
 import { bouyomi } from "./orignal_modules/bouyomi/main.js";
 import { handyTool } from "./orignal_modules/handyTool/main.js";
+import { hiddenLogger } from "./orignal_modules/hiddenLogger/main.js";
+import { contentTypeToExtConvert } from "./orignal_modules/contentTypeToExtConvert/main.js";
+import { stringInterface } from "./orignal_modules/stringInterface/main.js";
+import { sumVPITools } from "./orignal_modules/sumVPITools/main.js";
+import { youtubeSourceManager } from "./orignal_modules/youtubeSourceManager/main.js";
 
 class externalModulesClass {
     /**
@@ -58,6 +63,27 @@ class originalModulesClass {
      * 小規模の便利ツールを格納しています。
      */
     handyTool = handyTool;
+    /**
+     * 隠しログ記録ツールです。これはこのライブラリのエラーをログファイルに書き出したり、設定を行うことでターミナルに出力を行うことが出来ます。開発用です。
+     */
+    hiddenLogger = hiddenLogger;
+    /**
+     * コンテンツタイプを拡張子から識別します。
+     */
+    contentTypeToExtConvert = contentTypeToExtConvert;
+    /**
+     * 文字の操作や管理をするためのツールです。
+     */
+    stringInterface = stringInterface;
+    /**
+     * 旧Various Programsをライブラリに組み込みました。
+     * SumVPITools (**Sum**wave **V**arious **P**rograms U**I** **I**O **Tools*)です。
+     */
+    sumVPITools = sumVPITools;
+    /**
+     * YTDLを利用した、様々なソース、情報、リストなどを管理できる「YouTube Source Manager」です。
+     */
+    youtubeSourceManager = youtubeSourceManager;
 }
 const originalModules: originalModulesClass = new originalModulesClass();
 class sumLibraryClass {

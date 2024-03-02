@@ -1,19 +1,18 @@
 import fs from "node:fs/promises";
 
-function pathSplit(pathString: string) {
-    const pathArray = pathString.split("/");
-    const name = pathArray[pathArray.length - 1];
-    const splitedName = name.split(".");
-    const extension = splitedName.length !== 1 ? splitedName[splitedName.length - 1] : undefined;
-    pathArray.pop();
-    return {
-        name: extension ? name.slice(0, -(extension.length + 1)) : name,
-        extension: extension,
-        path: pathArray,
-    };
-}
-
 export class path {
+    static pathSplit(pathString: string) {
+        const pathArray = pathString.split("/");
+        const name = pathArray[pathArray.length - 1];
+        const splitedName = name.split(".");
+        const extension = splitedName.length !== 1 ? splitedName[splitedName.length - 1] : undefined;
+        pathArray.pop();
+        return {
+            name: extension ? name.slice(0, -(extension.length + 1)) : name,
+            extension: extension,
+            path: pathArray,
+        };
+    }
     static async uniformPath(pathString: string) {
         // パス記号や無駄な文字の排除、修正
         const slashReplaceString = pathString.replaceAll("\\", "/");
@@ -38,10 +37,10 @@ export class path {
         return pathTmp;
     }
     static extensionGet(pathString: string) {
-        return pathSplit(pathString).extension;
+        return path.pathSplit(pathString).extension;
     }
     static nameGet(pathString: string) {
-        return pathSplit(pathString).name;
+        return path.pathSplit(pathString).name;
     }
     static async pathIsFolder(pathString: string) {
         const stats = await fs.stat(pathString);

@@ -54,7 +54,7 @@ export class easyExpress {
         const filepath = folderPath + url;
         const headers: http.OutgoingHttpHeaders | http.OutgoingHttpHeader[] = {};
         headers["Accept-Ranges"] = "bytes";
-        headers["Content-Type"] = contentType;
+        if (contentType !== undefined) headers["Content-Type"] = contentType;
         if (fs.existsSync(filepath)) {
             const fileSize = (await fsP.stat(filepath)).size;
             const chunkSize = 1 * 1e7; //チャンクサイズ
@@ -67,11 +67,11 @@ export class easyExpress {
                 start: Number(ranges[0]),
                 end: 0,
             };
-            options.end = Number(ranges[1]) || Math.min(options.start + chunkSize, fileSize - 1)
+            options.end = Number(ranges[1]) || Math.min(options.start + chunkSize, fileSize - 1);
             if (!req.headers.range) options.end = fileSize - 1;
-            headers["Content-Length"] = String(fileSize)
-            if (req.headers.range) headers["Content-Length"] = String(options.end - options.start + 1)
-            headers["Content-Range"] = "bytes " + options.start + "-" + options.end + "/" + fileSize
+            headers["Content-Length"] = String(fileSize);
+            if (req.headers.range) headers["Content-Length"] = String(options.end - options.start + 1);
+            headers["Content-Range"] = "bytes " + options.start + "-" + options.end + "/" + fileSize;
             res.writeHead(req.headers.range ? 206 : 200, headers);
             const stream = fs.createReadStream(filepath, options);
             stream.on("data", (chunk) => res.write(chunk));
@@ -87,7 +87,7 @@ export class easyExpress {
     /** easyExpressを立ち上げるために使用された変数です。 */
     data: {
         /**
-         *
+         * サーバーが登録されます。
          */
         server?: http.Server | https.Server;
     } = {};
