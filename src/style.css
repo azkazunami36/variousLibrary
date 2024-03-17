@@ -1,0 +1,105 @@
+/* ここからはホーム系統のcss */
+
+html,
+body {
+    margin: 0;
+}
+
+/* タイトルCSS */
+.topTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px 0;
+    width: 100%;
+}
+
+.topTitle .mainText {
+    font-size: 35px;
+}
+
+.topTitle .subText {
+    font-size: 20px;
+}
+
+.topTitle .subText .version {
+    display: inline;
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.topTitle .mainTextWithPhone {
+    display: none;
+}
+/* /タイトルCSS */
+
+/* アプリリストCSS */
+.appList {
+    display: flex;
+    justify-content: center;
+    width: calc(100% - 40px);
+    background: rgba(0, 140, 255, 0.6);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20px;
+}
+
+.appList .item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 75px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+}
+
+.appList .item .name {
+    font-size: 25px;
+    margin-left: 13.5px;
+    color: black;
+}
+
+.appList .item .description {
+    font-size: 15px;
+    margin-left: 13.5px;
+    color: rgba(0, 0, 0, 0.5);
+}
+/* /アプリリストCSS */
+
+/* ここまでがホーム系CSS */
+
+@media screen and (max-width: 959px) {
+    /* ここからはホーム系統のcss */
+
+    .topTitle .mainText {
+        display: none;
+    }
+
+    .topTitle .mainTextWithPhone {
+        display: block;
+        font-size: 22.5px;
+    }
+
+    .topTitle .subText {
+        font-size: 15px;
+    }
+
+    .topTitle .subText .version {
+        font-size: 11px;
+    }
+
+    /* アプリリストCSS */
+    .appList {
+        width: calc(100% - 20px);
+        margin: 0;
+        border-radius: 0;
+    }
+    /* /アプリリストCSS */
+
+    /* ここまでがホーム系CSS */
+
+    @media screen and (max-width: 480px) {
+    }
+}
