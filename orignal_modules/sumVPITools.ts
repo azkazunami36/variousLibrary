@@ -1,5 +1,5 @@
 import { JSDOM } from "jsdom";
-import { easyExpress } from "../easyExpress/main.js";
+import { easyExpress } from "./easyExpress.js";
 
 export class sumVPITools {
     constructor() {
@@ -26,9 +26,7 @@ export class sumVPITools {
         const exp = new easyExpress();
         exp.get((req, res) => {
             easyExpress.easyGetReply(req, res, "./src");
-        })
+        });
         exp.listen("80");
-
-
     }
 }

@@ -3,15 +3,15 @@ import { fs } from "./external_modules/fs/main.js";
 import { ytdl } from "./external_modules/ytdl/main.js";
 import { path as externalModulesPath } from "./external_modules/path/main.js";
 // 自作モジュールインポート
-import { path as originalModulesPath } from "./orignal_modules/path/main.js";
-import { easyExpress } from "./orignal_modules/easyExpress/main.js";
-import { bouyomi } from "./orignal_modules/bouyomi/main.js";
-import { handyTool } from "./orignal_modules/handyTool/main.js";
-import { hiddenLogger } from "./orignal_modules/hiddenLogger/main.js";
-import { contentTypeToExtConvert } from "./orignal_modules/contentTypeToExtConvert/main.js";
-import { stringInterface } from "./orignal_modules/stringInterface/main.js";
-import { sumVPITools } from "./orignal_modules/sumVPITools/main.js";
-import { youtubeSourceManager } from "./orignal_modules/youtubeSourceManager/main.js";
+import { path as originalModulesPath } from "./orignal_modules/path.js";
+import { easyExpress } from "./orignal_modules/easyExpress.js";
+import { bouyomi } from "./orignal_modules/bouyomi.js";
+import { handyTool } from "./orignal_modules/handyTool/handyTool.js";
+import { hiddenLogger } from "./orignal_modules/hiddenLogger.js";
+import { contentTypeToExtConvert } from "./orignal_modules/contentTypeToExtConvert.js";
+import { stringInterface } from "./orignal_modules/stringInterface.js";
+import { sumVPITools } from "./orignal_modules/sumVPITools.js";
+import { youtubeSourceManager } from "./orignal_modules/youtubeSourceManager.js";
 
 class externalModulesClass {
     /**

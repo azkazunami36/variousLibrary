@@ -4,10 +4,9 @@ import https from "https";
 import bodyParser from "body-parser";
 import fs from "fs";
 import fsP from "fs/promises";
-import qs from "qs";
 
-import { path } from "../../external_modules/path/main.js";
-import { contentTypeToExtConvert } from "../contentTypeToExtConvert/main.js";
+import { path } from "../external_modules/path/main.js";
+import { contentTypeToExtConvert } from "./contentTypeToExtConvert.js";
 
 export class easyExpress {
     constructor(option?: {
@@ -77,8 +76,8 @@ export class easyExpress {
             /** サーバーがリクエストを処理するために、リクエストをさらに拡張することが必要です。 */
             510: "Not Extended",
             /** クライアントがネットワークでアクセスするために認証が必要であることを示します。 */
-            511: "Network Authentication Required"
-        }
+            511: "Network Authentication Required",
+        };
     }
     /**
      * これをget関数内で使用すると、getの返信をすべてこの関数が終了させてくれます。
@@ -117,7 +116,7 @@ export class easyExpress {
                 stream.on("data", (chunk) => res.write(chunk));
                 stream.on("end", () => res.end());
             } catch (e) {
-                console.log(e, headers)
+                console.log(e, headers);
                 res.writeHead(500);
                 res.end();
             }
