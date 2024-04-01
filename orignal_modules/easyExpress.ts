@@ -113,7 +113,7 @@ export class easyExpress {
             try {
                 const stream = fs.createReadStream(filepath, options);
                 res.writeHead(req.headers.range ? 206 : 200, headers);
-                stream.on("data", (chunk) => res.write(chunk));
+                stream.on("data", (chunk: string) => res.write(chunk));
                 stream.on("end", () => res.end());
             } catch (e) {
                 console.log(e, headers);

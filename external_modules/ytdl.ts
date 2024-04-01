@@ -1,11 +1,25 @@
+import YTDL from "ytdl";
+
+export class ytdl {
+    static filterFormats(formats: videoFormat | videoFormat[], filter?: Filter): videoFormat[] { return YTDL.filterFormats(formats, filter) };
+    static version = YTDL.version;
+    static validateURL(string: string): boolean { return YTDL.validateURL(string) };
+    static validateID(string: string): boolean | never { return YTDL.validateID(string) };
+    static getVideoID(string: string): string { return YTDL.getVideoID(string) };
+    static getURLVideoID(string: string): string | never { return YTDL.getURLVideoID(string) };
+    static getInfo(url: string, options?: getInfoOptions): Promise<videoInfo> { return YTDL.getInfo(url, options) };
+    static getBasicInfo(url: string, options?: getInfoOptions): Promise<videoInfo> { return YTDL.getBasicInfo(url, options) };
+    static chooseFormat(format: videoFormat | videoFormat[], options?: chooseFormatOptions): videoFormat | never { return YTDL.chooseFormat(format, options) }
+}
+
 /** Auto CompleteをTでごまかし、確実に文字列を受け入れるユーティリティ? */
-type ExtendString<T extends string> = T | Omit<string, T>;
+export type ExtendString<T extends string> = T | Omit<string, T>;
 
 /** タイプフィルター */
-type Filter = 'audioandvideo' | 'videoandaudio' | 'video' | 'videoonly' | 'audio' | 'audioonly' | ((format: videoFormat) => boolean);
+export type Filter = 'audioandvideo' | 'videoandaudio' | 'video' | 'videoonly' | 'audio' | 'audioonly' | ((format: videoFormat) => boolean);
 
 /** 情報オプション */
-interface getInfoOptions {
+export interface getInfoOptions {
     /** 言語 */
     lang?: string;
     /** リクエストコールバック */
@@ -15,10 +29,10 @@ interface getInfoOptions {
 }
 
 /** クオリティ選択ガイド */
-type ChooseFormatQuality = 'lowest' | 'highest' | 'highestaudio' | 'lowestaudio' | 'highestvideo' | 'lowestvideo';
+export type ChooseFormatQuality = 'lowest' | 'highest' | 'highestaudio' | 'lowestaudio' | 'highestvideo' | 'lowestvideo';
 
 /** フォーマット選択オプション */
-interface chooseFormatOptions {
+export interface chooseFormatOptions {
     /** 品質 */
     quality?: ExtendString<ChooseFormatQuality> | number | ExtendString<ChooseFormatQuality>[] | number[];
     /** フィルター */
@@ -28,7 +42,7 @@ interface chooseFormatOptions {
 }
 
 /** ダウンロードオプション */
-interface downloadOptions extends getInfoOptions, chooseFormatOptions {
+export interface downloadOptions extends getInfoOptions, chooseFormatOptions {
     /** レンジ(ファイル範囲指定) */
     range?: {
         /** 開始位置 */
@@ -48,10 +62,10 @@ interface downloadOptions extends getInfoOptions, chooseFormatOptions {
 }
 
 /** 動画フォーマットクオリティガイド */
-type VideoFormatQuality = 'tiny' | 'small' | 'medium' | 'large' | 'hd720' | 'hd1080' | 'hd1440' | 'hd2160' | 'highres';
+export type VideoFormatQuality = 'tiny' | 'small' | 'medium' | 'large' | 'hd720' | 'hd1080' | 'hd1440' | 'hd2160' | 'highres';
 
 /** 動画フォーマット設定 */
-interface videoFormat {
+export interface videoFormat {
     /** Iタグ */
     itag: number;
     /** URL */
@@ -114,14 +128,14 @@ interface videoFormat {
 }
 
 /** サムネイル情報 */
-interface thumbnail {
+export interface thumbnail {
     url: string;
     width: number;
     height: number;
 }
 
 /** 字幕トラックシンプルテキスト */
-type CaptionTrackSimpleText = 'Afrikaans' | 'Albanian' | 'Amharic' | 'Arabic' | 'Armenian' | 'Azerbaijani' | 'Bangla' | 'Basque'
+export type CaptionTrackSimpleText = 'Afrikaans' | 'Albanian' | 'Amharic' | 'Arabic' | 'Armenian' | 'Azerbaijani' | 'Bangla' | 'Basque'
     | 'Belarusian' | 'Bosnian' | 'Bulgarian' | 'Burmese' | 'Catalan' | 'Cebuano' | 'Chinese (Simplified)'
     | 'Chinese (Traditional)' | 'Corsican' | 'Croatian' | 'Czech' | 'Danish' | 'Dutch' | 'English'
     | 'English (auto-generated)' | 'Esperanto' | 'Estonian' | 'Filipino' | 'Finnish' | 'French' | 'Galician'
@@ -136,7 +150,7 @@ type CaptionTrackSimpleText = 'Afrikaans' | 'Albanian' | 'Amharic' | 'Arabic' | 
     | 'Welsh' | 'Western Frisian' | 'Xhosa' | 'Yiddish' | 'Yoruba' | 'Zulu';
 
 /** 字幕トラック言語コード */
-type CaptionTrackLanguageCode = 'af' | 'sq' | 'am' | 'ar' | 'hy' | 'az' | 'bn' | 'eu' | 'be' | 'bs' | 'bg' | 'my' | 'ca' | 'ceb'
+export type CaptionTrackLanguageCode = 'af' | 'sq' | 'am' | 'ar' | 'hy' | 'az' | 'bn' | 'eu' | 'be' | 'bs' | 'bg' | 'my' | 'ca' | 'ceb'
     | 'zh-Hans' | 'zh-Hant' | 'co' | 'hr' | 'cs' | 'da' | 'nl' | 'en' | 'eo' | 'et' | 'fil' | 'fi' | 'fr' | 'gl'
     | 'ka' | 'de' | 'el' | 'gu' | 'ht' | 'ha' | 'haw' | 'iw' | 'hi' | 'hmn' | 'hu' | 'is' | 'ig' | 'id' | 'ga' | 'it'
     | 'ja' | 'jv' | 'kn' | 'kk' | 'km' | 'ko' | 'ku' | 'ky' | 'lo' | 'la' | 'lv' | 'lt' | 'lb' | 'mk' | 'mg' | 'ms'
@@ -145,7 +159,7 @@ type CaptionTrackLanguageCode = 'af' | 'sq' | 'am' | 'ar' | 'hy' | 'az' | 'bn' |
     | 'th' | 'tr' | 'uk' | 'ur' | 'uz' | 'vi' | 'cy' | 'fy' | 'xh' | 'yi' | 'yo' | 'zu';
 
 /** 字幕トラック */
-interface captionTrack {
+export interface captionTrack {
     baseUrl: string;
     name: {
         simpleText: ExtendString<CaptionTrackSimpleText>;
@@ -158,18 +172,18 @@ interface captionTrack {
 }
 
 /** 音声トラック */
-interface audioTrack {
+export interface audioTrack {
     captionTrackIndices: number[];
 }
 
 /** 翻訳言語 */
-interface translationLanguage {
+export interface translationLanguage {
     languageCode: captionTrack['languageCode'];
     languageName: captionTrack['name'];
 }
 
 /** 動画情報 */
-interface VideoDetails {
+export interface VideoDetails {
     /** YouTube管理のVideoID */
     videoId: string;
     /** タイトル */
@@ -200,7 +214,7 @@ interface VideoDetails {
 }
 
 /** メディア情報 */
-interface Media {
+export interface Media {
     category: string;
     category_url: string;
     game?: string;
@@ -215,7 +229,7 @@ interface Media {
 }
 
 /** ユーザー */
-interface Author {
+export interface Author {
     id: string;
     name: string;
     /** @deprecated 削除予定 */
@@ -230,7 +244,7 @@ interface Author {
 }
 
 /** マイクロフォーマットレンダラー */
-interface MicroformatRenderer {
+export interface MicroformatRenderer {
     thumbnail: {
         thumbnails: thumbnail[];
     };
@@ -268,7 +282,7 @@ interface MicroformatRenderer {
 }
 
 /** ストーリーボード */
-interface storyboard {
+export interface storyboard {
     templateUrl: string;
     thumbnailWidth: number;
     thumbnailHeight: number;
@@ -280,13 +294,13 @@ interface storyboard {
 }
 
 /** チャプター */
-interface Chapter {
+export interface Chapter {
     title: string;
     start_time: number;
 }
 
 /** さらなるビデオの詳細 */
-interface MoreVideoDetails extends Omit<VideoDetails, 'author' | 'thumbnail' | 'shortDescription'>, Omit<MicroformatRenderer, 'title' | 'description'> {
+export interface MoreVideoDetails extends Omit<VideoDetails, 'author' | 'thumbnail' | 'shortDescription'>, Omit<MicroformatRenderer, 'title' | 'description'> {
     /** */
     published: number;
     /** YouTube動画へのリンク */
@@ -312,7 +326,7 @@ interface MoreVideoDetails extends Omit<VideoDetails, 'author' | 'thumbnail' | '
 }
 
 /** 動画情報 */
-interface videoInfo {
+export interface videoInfo {
     iv_load_policy?: string;
     iv_allow_in_place_switch?: string;
     iv_endscreen_url?: string;
@@ -473,7 +487,7 @@ interface videoInfo {
 }
 
 /** 関連動画 */
-interface relatedVideo {
+export interface relatedVideo {
     id?: string;
     title?: string;
     published?: string;
@@ -492,35 +506,3 @@ interface relatedVideo {
     richThumbnails: thumbnail[];
     isLive: boolean;
 }
-
-/**
- * 日本語に変換した型定義です。
- */
-declare module interfaceAndTypeDef {
-    export {
-        ExtendString,
-        Filter,
-        getInfoOptions,
-        ChooseFormatQuality,
-        chooseFormatOptions,
-        downloadOptions,
-        VideoFormatQuality,
-        videoFormat,
-        thumbnail,
-        CaptionTrackSimpleText,
-        CaptionTrackLanguageCode,
-        captionTrack,
-        audioTrack,
-        translationLanguage,
-        VideoDetails,
-        Media,
-        Author,
-        MicroformatRenderer,
-        storyboard,
-        Chapter,
-        MoreVideoDetails,
-        videoInfo,
-        relatedVideo
-    }
-};
-export default interfaceAndTypeDef;

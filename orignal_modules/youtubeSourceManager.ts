@@ -1,4 +1,4 @@
-import ytdlInter from "../external_modules/ytdl/interfaceAndTypeDef.js";
+import { Author, MoreVideoDetails } from "../external_modules/ytdl.js";
 
 interface data {
     /** ユーザーが記録されます。 */
@@ -7,7 +7,7 @@ interface data {
             /**
              * YTDLが取得したユーザーデータの全てがここに記録されます。
              */
-            authorRawData: ytdlInter.Author;
+            authorRawData: Author;
             /**
              * このユーザーが投稿している動画のIDが保存されます。
              */
@@ -19,7 +19,7 @@ interface data {
             /**
              * YTDLが取得した動画情報の全てがここに記録されます。
              */
-            videoInfoRawData: ytdlInter.MoreVideoDetails;
+            videoInfoRawData: MoreVideoDetails;
         };
     };
 }
